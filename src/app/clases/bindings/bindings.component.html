@@ -1,0 +1,62 @@
+<hr>
+<h2>Binding</h2>
+<p>Es una forma de comunicar nuestro template con nuestro component, sin complicarnos tanto como se hace naturalmente en JS </p>
+<hr>
+<div class="row">
+    <h3>Interpolación</h3>
+    <div class="col-md-9">
+        <p>Es un mecanismo para poder sustituir una expresion de nuestro TS en nuestro template para poderlo visualizar, para esto nos apoyaremos con dobles llaves {{ '{{}}'}} y dentro de esta ponemos la expresion</p>
+    </div>
+    <div class="col-md-3">
+        <h4>Ejemplos:</h4>
+        <ol>
+            <li>{{ unMensaje }}</li>
+            <li> {{ 2+2 }} </li>
+            <li> {{ retornarSaludo() }} </li>
+        </ol>
+    </div>
+</div>
+
+<hr>
+<div class="row">
+    <h3>Property binding (Enlace de propiedades)</h3>
+    <div class="col-md-9">
+        <p>Es el enlace que se hace para las propiedades con la sintaxis de [propiedad]="expresion"</p>
+    </div>
+    <div class="col-md-3">
+        <h4>Ejemplo:</h4>
+        <ol>
+            <li><button class="btn btn-primary" [disabled]="botonDesactivado">Boton</button></li>
+            <li> {{placaOculta}}<span class="badge text-bg-success" [hidden]="placaOculta">Exitoso</span></li>
+            <li><img [src]="urlImg" alt="" class="w-100"></li>
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <h3>Event binding (Enlace de eventos)</h3>
+    <div class="col-md-9">
+        <p>Es una forma notificar desde el HTML al component que sucedio algo, gracias a esto podemos disparar un metodo(funcion) o alguna expresion. Su sintaxis es (evento)="expresion"</p>
+    </div>
+    <div class="col-md-3">
+        <h4>Ejemplo:</h4>
+        <button class="btn btn-primary" (dblclick)="mensajeDelBoton = 'Cambie'">{{ mensajeDelBoton }}</button>
+        <input type="text" (change)="metodoEvento($event)">
+
+    </div>
+</div>
+<hr>
+<div class="row">
+    <h3>Two way binding (Enlace bidireccional)</h3>
+    <div class="col-md-9">
+        <p>Es una forma de tener una comunicacion en ambos sentidos y se aplica generalmente para manipulacion de inputs especificos y nos permite una actualizacion constante. Su sintaxis llamada banana in a box es [(ngModel)]="propiedad". Adicional es obligatorio la importacion del modulo formModule y para antiguas versiones es obligatorio que el atributo name este en el input</p>
+    </div>
+    <div class="col-md-3">
+        <h4>Ejemplo:</h4>
+        <input type="text" [(ngModel)]="inputEjemplo">
+        {{inputEjemplo}}
+        <img class="w-100" [src]="inputEjemplo" alt="Vista previa de img">
+
+    </div>
+
+</div>

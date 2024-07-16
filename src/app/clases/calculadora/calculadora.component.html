@@ -1,0 +1,36 @@
+<h2>Calculadora</h2>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-3">
+                <span class="badge text-bg-secondary text-end" style="height: 2em">{{operacion}}</span>
+                <!-- <span class="badge text-bg-secondary text-end" style="height: 2em"> {{valorEnPantalla}} </span> -->
+                <input type="text text-end" class="form-control" [(ngModel)]="valorEnPantalla">
+            </div>
+            <div class="row">
+                <button class="btn btn-light col-3" (click)="presionarBoton('7')">7</button>
+                <button class="btn btn-light col-3" (click)="presionarBoton('8')">8</button>
+                <button class="btn btn-light col-3" (click)="presionarBoton('9')">9</button>
+                <button class="btn btn-light col-3" (click)="presionarBoton('/')">/</button>
+            </div>
+            <div class="row">
+                <button class="btn btn-light col-3" (click)="presionarBoton('4')">4</button>
+                <button class="btn btn-light col-3" (click)="presionarBoton('5')">5</button>
+                <button class="btn btn-light col-3" (click)="presionarBoton('6')">6</button>
+                <button class="btn btn-light col-3" (click)="presionarBoton('*')">*</button>
+            </div>
+            <div class="row">
+                <button class="btn btn-light col-3" (click)="presionarBoton('1')">1</button>
+                <button class="btn btn-light col-3" (click)="presionarBoton('2')">2</button>
+                <button class="btn btn-light col-3" (click)="presionarBoton('3')">3</button>
+                <button class="btn btn-light col-3" (click)="presionarBoton('-')">-</button>
+            </div>
+            <div class="row">
+                <button class="btn btn-light col-3" (click)="presionarBoton('0')">0</button>
+                <button class="btn btn-light col-3" (click)="presionarBoton('.')">.</button>
+                <button class="btn btn-light col-3" (click)="presionarBoton('=')">=</button>
+                <button class="btn btn-light col-3" (click)="presionarBoton('+')">+</button>
+            </div>
+        </div>
+    </div>
+</div>
