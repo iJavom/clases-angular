@@ -1,0 +1,195 @@
+<h2>Directives (Directivas)</h2>
+<hr>
+<div class="row">
+    <p>Son las herramientas que nos el framework para poder tener comportamientos adicionales sobre nuestros elementos en el DOM (Document Object Model)</p>
+    <br>
+    <h5>Tipos de directivas:</h5>
+    <ul>
+        <li>Components Directives: Son las directivas mas comunes y que generalmente se declaran en la etiqueta</li>
+        <li>Structural Directives (Directivas Estructurales): Que sirven para definir que se renderiza en nuestro DOM y por ende puede hacer que nuestro HTML tenga mas o menos codigo y se trabaja con las etiquetas nativas o components directives</li>
+        <li>Attributes Directives (Directivas de atributos): Sirven para añadir atributos a nuestras etiquetas ya sean nativas de html o nuestros components directives (los que usan los selectores)</li>
+    </ul>
+</div>
+
+<hr>
+<div class="row">
+    <h3>Components Directives (Directivas de componentes)</h3>
+    <p>Son aquellas etiquetas que usamos a partir de un selector (por los componentes) o sirven para invocar librerias/modulos</p>
+    <br>
+    <p>Algunas directivas especiales de angular son:</p>
+    <ul>
+        <li>ng-container: Sirve para poner una etiqueta a la cual le podamos aplicar directivas estructurales</li>
+        <li>ng-template: Sirve para poder hacer referencia a que pongamos dicho contenido</li>
+        <li>ng-content: Sirve para indicarle a angular que el contenido que se use en la directiva en padre debe ir dentro de esa etiqueta</li>
+    </ul>
+    <div class="container p-5">
+        <h4>Ejemplo:</h4>
+        <hr><hr>
+        <app-calculadora></app-calculadora>
+        <hr><hr>
+    </div>
+</div>
+<hr>
+<hr>
+<div class="row">
+    <h3>Structural Directives (Directivas Estructurales)</h3>
+    <p>Las directivas estructurales son aquellas que nos permiten definir que vamos a renderizar a partir de ciertas expresiones.</p>
+</div>
+<hr>
+<div class="row">
+
+    <h3>*ngIf (v16 e inferiores )/ @ if (v17 y superiores)</h3>
+    <div class="col-md-9">
+        <p>Sirven para indicar si un elemento de nuestro HTML se va a renderizar o no, en las versiones anteriores a la 17 se usaba *ngIf apoyado de la libreria commonModule pero a partir de la 17 se usa @ if (unido) y funciona de una manera mas eficiente porque forma parte de manera nativa de angular, adicionalmente tiene funcionalidades añadidas de manera mas simple. Su sintaxis dependiendo de su version es:</p>
+    
+        <br>
+        <li><strong>16 y menores:</strong> se usa *ngIf="booleano"</li>
+        <br>
+        <li><strong>17 y mayores:</strong> se usa con {{'@if(booleano){...}@else if(booleano){...}@else{...}'}}</li>
+    </div>
+    <div class="col-md-3">
+        <h4>Ejemplo:</h4>
+        <button class="btn btn-primary" (click)="variableIf = !variableIf">Clickame para mostrar / ocultar</button> {{variableIf}}
+
+        <ng-container *ngIf="variableIf; else templateElse">
+            <h5>Estoy renderizado  por if 🙂</h5>
+        </ng-container>
+        <ng-template #templateElse>
+                <h5>Estoy renderizado por else🙂</h5>
+        </ng-template>
+        
+        <!-- <div [hidden]="!variableIf">
+            <h5>Estoy mostrado 🙂 descomentar para ver diferencias</h5>
+        </div> -->
+
+        <!-- Ejemplo angular 17 o superior -->
+        <!-- 
+        @if(variableIf){
+            <h5>Estoy renderizado  por if 🙂</h5>
+        }@else if(!variableIf && numero > 3){
+            <h5>Estoy renderizado porque la variable numero es mayor a 3 y variableIf es falsa</h5>
+        }@else{
+            <h5>Estoy renderizado por else🙂</h5>
+        } 
+        -->
+    </div>
+</div>
+
+<hr>
+<div class="row">
+    <h3>*ngFor (16 e inferiores)  / @ for (17 y superiores)</h3>
+    <div class="row">
+        <div class="col-md-9">
+            <p>Es una directiva que sirve para renderizar sobre una iteracion de un array, es decir que cada elemento de una propiedad tendra un template asignado de forma que no tenemos que repetir nuestras etiquetas constantemente por cada elemento. Una vez mas en angular 16 se usaba el commmonModule pero en el 17 se integro como parte de angular haciendolo mas eficiente. Su sintaxis dependiendo de la version es :</p>
+            <br>
+            <ul>
+                <li><strong>v16 e inferiores:</strong> usamos el *ngFor="let elemento of array; let i = index"</li>
+                <li><strong>v17 y superiores:</strong> usamos el @ for(elemento of array; track indice; let i = $index)</li>
+            </ul>
+            <br>
+            <small>Nota: lo que va despues de los ; son opcionales exceptuando el track en el 17</small>
+        </div>
+        <div class="col-md-3">
+            <h4>Ejemplo</h4>
+            <ul>
+                <ng-container *ngFor="let numero of numeros; let i=index" >
+                    <li *ngIf="numero%2==0">{{i}} -  Soy el numero {{numero}}</li>
+                </ng-container>
+
+            </ul>
+
+            <!-- ejemplo angualr 17 y superiores -->
+            <!-- <ul>
+                @for(fruta of frutas; track fruta){
+                    <li>{{fruta}}</li>
+                }
+            </ul> -->
+        </div>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <h3> ngSwitch (v16 e inferiores) / @ switch (v17 y superiores)</h3>
+    <div class="col-md-9">
+        <p>Permite para definir de un conjunto de opciones donde se hara una comparacion que sea estrictamente igual que template queremos renderizar, una vez mas funciona con commonModule en versiones inferiores a la 16 y forma parte de angular apartir de la 17 gracias al @ switch. Dependiendo de la version su sintaxis es:</p>
+        <br>
+        <ul>
+            <li><strong>v16 e inferiores:</strong> su sintaxis es:
+                <ul>
+                    <li>[ngSwitch]="expresion" -> Corresponde a lo que se va a evaluar</li>
+                    <li>*ngSwitchCase="valor" -> Corresponde contra que se va a comparar</li>
+                    <li> *ngSwitchDefault -> En caso de no corresponder a ningun case se genera este</li>
+                </ul>
+            </li>
+            <li><strong>v17 y superiores:</strong> su sintaxis es:
+                <ul>
+                    <li>@ switch(expresion) -> Corresponde a lo que se va evaluar y dentro de las llaves van sus otros elementos</li>
+                    <li>@ case(expresionAComparar) -> Corresponde contra que se va a comparar</li>
+                    <li>@ default -> Corresponde al valor en caso de no coincidir con ningun case</li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+    <div class="col-md-3">
+        <h4>Ejemplo:</h4>
+        <div [ngSwitch]="status">
+            <p *ngSwitchCase="'En Proceso'">Su pedido esta en proceso</p>
+            <p *ngSwitchCase="'Listo'">Su pedido esta listo</p>
+            <p *ngSwitchCase="'Entregado'">Su pedido fue entregado</p>
+            <p *ngSwitchDefault>Estado desconocido</p>
+        </div>
+
+        <!-- ejemplo angular 17 -->
+        <!-- @switch (status) {
+            @case('En proceso'){<p>Su pedido esta en proceso</p>}
+            @case('Listo'){<p>Su pedido esta listo</p>}
+            @case('Entregado'){<p>Su pedido fue entregado</p>}
+            @default{<p>Estado desconocido</p>}
+        } -->
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <h3>Attribute Directives (Directivas de atributos)</h3>
+    <p>Son aquellas directivas que sirven para poderle dar atributos dinamicos a nuestros elementos y adicionalmente podemos crear directivas de atributos personalizadas.</p>
+</div>
+<div class="row">
+    <h3>ngClass</h3>
+    <div class="col-md-9">
+        <p>El ngClass sirve para permitir modificar todo lo que incumbe a las clases de un elemento, donde podemos agregar, eliminar, modificar directamente su atributo</p>
+        <br>
+        <p>Su sintaxis es: [ngClass]="'nombre-clase' : booleano" siendo el valor un objeto constituido de propiedaeds(nombre-clases) y valores boooleanos</p> 
+    </div>
+    <div class="col-md-3">
+        <h4>Ejemplo:</h4>
+        <button class="btn w-100" (click)="variableIf = !variableIf" [ngClass]="{'btn-primary': variableIf, 'btn-danger': !variableIf}">Soy un boton que cambia de color</button>
+    </div>
+</div>
+
+<div class="row">
+    <h3>ngStyle</h3>
+    <br>
+    <div class="col-md-9">
+        <p>Es una directiva comunmente usada para hacer modificaciones sobre el estilo de un elemento, de hecho le aplica un style inline</p>
+        <br>
+        <p>La sintaxis es: [ngStyle]="'propiedad-css':expresion"</p>
+    </div>   
+    <div class="col-md-3">
+        <h4>Ejemplo</h4>
+        <div class="card">
+            <div class="card-body" (click)="incrementaHeight()" [ngStyle]="unObjetoCss">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <h3>Todas las propiedades del DOM</h3>
+    <br>
+    <p>Para efectos nosotros podemos usar todas las directas del DOM haciendo uso del property binding de forma que podamos poner desde el TS el valor a nuestra propiedad del dom</p>
+
+    <h4 [hidden]="true">Ejemplo:</h4>
+</div>
