@@ -1,0 +1,14 @@
+<app-menu [menu]="menuClases" [menuActivo]="menuEscogido" (menuEscogido)="menuEscogido = $event"></app-menu>
+
+<ng-container [ngSwitch]="menuEscogido">
+    <app-componentes *ngSwitchCase="'componentes'"></app-componentes>
+    <app-bindings *ngSwitchCase="'binding'"></app-bindings>
+    <app-calculadora *ngSwitchCase="'calculadora'"></app-calculadora>
+    <app-directives *ngSwitchCase="'directivas'"></app-directives>
+    <app-comunicacion-components *ngSwitchCase="'comunicacion-componentes'">
+        <span class="badge bg-success">Hola vengo del apdre</span>
+    </app-comunicacion-components>
+    
+    <app-ciclo-vida [bulto]="'Hola'" *ngSwitchCase="'ciclo-vida'"></app-ciclo-vida>
+
+</ng-container>

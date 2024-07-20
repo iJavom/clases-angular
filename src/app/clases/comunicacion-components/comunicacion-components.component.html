@@ -1,0 +1,63 @@
+<hr>
+<h2>Comunicacion entre componentes</h2>
+<div class="row">
+    <p>Es la forma que nos ofrece angular para que nosotros podamos comunicar los datos o propiedades entre nuestros componentes</p>
+</div>
+
+<div class="row">
+    <h3>@Input</h3>
+    <br>
+    <div class="col-md-9">
+        <p>El input es la herramienta que nos ofrece angular para dar un dato de entrada a nuestro componente. Nosotros le podemos dar un valor por defecto o dejar que se defina directamente en el padre.</p>
+        <br>
+        <p>Para nosotros poder usar el @Input, debemos usar los property binding desde el que lo esta invocando.</p>
+    </div>
+    <div class="col-md-3">
+        <h4>Ejemplo: </h4>
+        <app-ejemplo-input [tituloInput]="variableQueMandaraAlHijo"></app-ejemplo-input>
+    </div>
+</div>
+<div class="row">
+    <h3>@Output</h3>
+    <br>
+    <div class="col-md-9">
+        <p>El output es la herramienta que nos ofrece angular para que un componente hijo se pueda comunicar con el componente padre.  </p>
+        <br>
+        <p>Pero para poder ser usado el padre va a usar los event binding es decir ().</p>
+    </div>
+    <div class="col-md-3">
+        <h4>Ejemplo:</h4>
+        <app-ejemplo-output (unaVariableDisparaEventos)="metodoReceptorDelOutput($event)">
+        </app-ejemplo-output>
+        <small>{{variableReceptoraDelHijo}}</small>
+    </div>
+</div>
+
+<div class="row">
+    <h3>Rereferencias Locales</h3>
+    <div class="col-md-9">
+        <p>Son variables que podemos definir en nuestro mismo template y gracias a ella podemos hacer referencia a nuestros elemento dom don lo queramos usar...</p>
+    </div>
+    <div class="col-md-3">
+        <h4>Ejemplo</h4>
+        <input #inputDOM type="text" placeholder="Puedes escribir algo">
+        <button class="btn btn-primary" (click)="mostrarReferenciaLocal(inputDOM)">Muestra la informacion del #</button>
+    </div>
+    
+</div>
+
+
+<div class="row">
+    <h3>ng-content</h3>
+    <div class="col-md-9">
+        <p>Sirve para que nosotros solo poniendo la etiqueta ng-content le indicamos a cualquier componente que use este componente que si ponen algo dentro de la directiva selector lo ponga dentro de esas etiquetas, en caso de haber 2 o mas escogera el ultimo </p>
+    </div>
+    <div class="col-md-3">
+
+        <h4>Ejemplo</h4>
+
+        Ver en el padre lo que se mando 
+        
+        <ng-content></ng-content>
+    </div>
+</div>

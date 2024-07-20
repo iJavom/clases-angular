@@ -8,6 +8,12 @@ import { BindingsComponent } from './clases/bindings/bindings.component';
 import { FormsModule } from '@angular/forms';
 import { CalculadoraComponent } from './clases/calculadora/calculadora.component';
 import { DirectivesComponent } from './clases/directives/directives.component';
+import { ComunicacionComponentsComponent } from './clases/comunicacion-components/comunicacion-components.component';
+import { EjemploInputComponent } from './clases/comunicacion-components/ejemplo-input/ejemplo-input.component';
+import { EjemploOutputComponent } from './clases/comunicacion-components/ejemplo-output/ejemplo-output.component';
+import { CicloVidaComponent } from './clases/ciclo-vida/ciclo-vida.component';
+import { ClasesComponent } from './clases/clases.component';
+import { MenuComponent } from './clases/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +21,13 @@ import { DirectivesComponent } from './clases/directives/directives.component';
     ComponentesComponent,
     BindingsComponent,
     CalculadoraComponent,
-    DirectivesComponent
+    DirectivesComponent,
+    ComunicacionComponentsComponent,
+    EjemploInputComponent,
+    EjemploOutputComponent,
+    CicloVidaComponent,
+    ClasesComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
