@@ -14,6 +14,9 @@ import { EjemploOutputComponent } from './clases/comunicacion-components/ejemplo
 import { CicloVidaComponent } from './clases/ciclo-vida/ciclo-vida.component';
 import { ClasesComponent } from './clases/clases.component';
 import { MenuComponent } from './clases/menu/menu.component';
+import { RoutingComponent } from './clases/routing/routing.component';
+import { RHtmlComponent } from './clases/routing/r-html/r-html.component';
+import { RTsComponent } from './clases/routing/r-ts/r-ts.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { MenuComponent } from './clases/menu/menu.component';
     EjemploOutputComponent,
     CicloVidaComponent,
     ClasesComponent,
-    MenuComponent
+    MenuComponent,
+    RoutingComponent,
+    RHtmlComponent,
+    RTsComponent
   ],
   imports: [
     BrowserModule,

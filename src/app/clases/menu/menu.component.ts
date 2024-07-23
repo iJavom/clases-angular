@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -10,8 +11,14 @@ export class MenuComponent {
   @Input() menuActivo : string = '';
   @Output() menuEscogido = new EventEmitter<string>();
 
+  constructor(private router : Router){
+
+  }
+
   escogerMenu(urlMenu: string){
-    this.menuEscogido.emit(urlMenu);
+    // this.menuEscogido.emit(urlMenu);
+    this.router.navigate([urlMenu]);
+
   }
 
 }

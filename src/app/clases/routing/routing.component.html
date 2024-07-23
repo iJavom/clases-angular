@@ -1,0 +1,33 @@
+<h3>Routing</h3>
+<div class="row">
+    <p>El routing es un modulo de angular que nos permite aprovechar lo que es el direccionamiento del navegador (la barra de direcciones) para definir que componente o modulos podemos ir cargando a nuestro navegador</p>
+    <br>
+    <p>Nuestros archivos routing en angular 16 e inferiores generalmente vienen con la nomenclatura nombreModulo-routing.module.ts y viene de pareja con su modulo (ejemplo en este caso nombreModulo.module.ts) y debe ser IMPORTADO por este ultimo. Para efectos del angular 17 y superiores solo necesitamos un archivo .routes.ts  y en nuestro componente pareja debemos importar routerOutlet</p>
+    <br>
+    <p>
+        En el archivo se maneja para efectos como uno tipico de ts donde nosotros vamos a importar los componentes que vamos a usar... adicionalmente veremos que tenemos un array de routes, ese array sirve para definir el conjunto de rutas que vamos a usar para determinados componentes/modulos
+    </p>
+    <br>
+    <strong>Nota: Revisar app-routing.module.ts para ver anotaciones extra (Si no clases-routing.module.ts)</strong>
+
+    <p><strong>IMPORTANTISIMO</strong> por cada route que creemos nosotros tenemos que usar la directiva de componente router-outlet para que el route sepa donde debe rutear (quitar/poner componentes/modulos)</p>
+    <div class="container">
+        <div class="row">
+            <h3>Navegacion por router module</h3>
+            <div class="col-md-9">
+                <p> Nosotros nos podemos desplazar por nuestro sitio gracias a unas herramientas que nos ofrece el modulo de router, una que la podemos usar directamente como una directiva y la otra que la podemos usar como invocacion de parte de una libreria</p>
+                <br>
+                <ul>
+                    <li><strong>[routerLink]</strong> Esta directiva la podemos aplicar sobre nuestros elementos de forma tal que cuando se de click  va a navegar hacia la ruta qeu nosotros le hayamos especificados bajo la condicion del route</li>
+                    <li><strong>navigateByUrl</strong> Este metodo es para poder navegar mediante la libreria route en el ts, hay que invocarla primero en el constructor con "Route" y posteriormente nuestro objeto inicializado con esto le podemos aplicar el metodo navigateByUrl con parametro la url que queremos mandar</li>
+                </ul>
+                <br>
+                <p>Nota: Hay que tener atención en los routing porque si nuestra empieza con slash (/) es una ruta absoluta, y si no es una ruta relativa</p>
+            </div>
+            <div class="col-md-3">
+                <h4>Ejemplo:</h4>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

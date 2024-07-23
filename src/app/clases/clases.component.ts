@@ -31,6 +31,10 @@ export class ClasesComponent {
     {
       nombre: 'directivas',
       url: 'directivas'
+    },
+    {
+      nombre: 'ruteo',
+      url: 'routing'
     }
   ]
 
