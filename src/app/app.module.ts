@@ -17,6 +17,13 @@ import { MenuComponent } from './clases/menu/menu.component';
 import { RoutingComponent } from './clases/routing/routing.component';
 import { RHtmlComponent } from './clases/routing/r-html/r-html.component';
 import { RTsComponent } from './clases/routing/r-ts/r-ts.component';
+import { TiendaComponent } from './tienda/tienda.component';
+import { NavbarComponent } from './tienda/navbar/navbar.component';
+import { InicioComponent } from './tienda/inicio/inicio.component';
+import { ProductosComponent } from './tienda/productos/productos.component';
+import { ContactanosComponent } from './tienda/contactanos/contactanos.component';
+import { ModelosComponent } from './clases/modelos/modelos.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +40,14 @@ import { RTsComponent } from './clases/routing/r-ts/r-ts.component';
     MenuComponent,
     RoutingComponent,
     RHtmlComponent,
-    RTsComponent
+    RTsComponent,
+    TiendaComponent,
+    NavbarComponent,
+    InicioComponent,
+    ProductosComponent,
+    ContactanosComponent,
+    ModelosComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

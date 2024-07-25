@@ -13,7 +13,7 @@
     <p><strong>IMPORTANTISIMO</strong> por cada route que creemos nosotros tenemos que usar la directiva de componente router-outlet para que el route sepa donde debe rutear (quitar/poner componentes/modulos)</p>
     <div class="container">
         <div class="row">
-            <h3>Navegacion por router module</h3>
+            <h3>Navegacion por router module y PARAMETROS</h3>
             <div class="col-md-9">
                 <p> Nosotros nos podemos desplazar por nuestro sitio gracias a unas herramientas que nos ofrece el modulo de router, una que la podemos usar directamente como una directiva y la otra que la podemos usar como invocacion de parte de una libreria</p>
                 <br>
@@ -23,6 +23,8 @@
                 </ul>
                 <br>
                 <p>Nota: Hay que tener atención en los routing porque si nuestra empieza con slash (/) es una ruta absoluta, y si no es una ruta relativa</p>
+                <br>
+                <p>Adicional si nosotros queremos mandar informacion a traves de la barras de direciones nosotros podemos usar los PARAMETROS. simplemente en nuestro routing/route ponemos "/:nombreParametro" para indicarle a nuestra libreria de route que ahi puede ir cualquier cosa, pero va a ser asignado a una propiedad de activatedRoute (una libreria distinta a router) </p>
             </div>
             <div class="col-md-3">
                 <h4>Ejemplo:</h4>

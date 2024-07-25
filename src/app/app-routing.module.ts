@@ -10,6 +10,11 @@ import { BindingsComponent } from './clases/bindings/bindings.component';
 import { RoutingComponent } from './clases/routing/routing.component';
 import { RHtmlComponent } from './clases/routing/r-html/r-html.component';
 import { RTsComponent } from './clases/routing/r-ts/r-ts.component';
+import { TiendaComponent } from './tienda/tienda.component';
+import { ProductosComponent } from './tienda/productos/productos.component';
+import { ContactanosComponent } from './tienda/contactanos/contactanos.component';
+import { InicioComponent } from './tienda/inicio/inicio.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 //En routes nosotros guardamos un conjunto de objetos, con sus respectivas rutas y componentes o modulos
@@ -20,7 +25,7 @@ const routes: Routes = [
   //4.- Rutas anidadas: Son aquellas que importan modulos y por ende traspasan la responsabilidad del ruteo a otros ruteadores
   //5.- Ruta 404 / Not Found - No encontrada: Es la ruta que sirve para redirigir cualquier ruta desconocida.
 
-  //Volvemos a las 8:20
+
   /*
   Estructura de un route:{
     path:'componente',//-> Un string que sirve para indicar la ruta con la que nosotros podemos acceder al elemento referenciado (componente/modulo) desde nuestra barra de direcciones,
@@ -40,6 +45,7 @@ const routes: Routes = [
       { path: 'comunicacion-componentes', component: ComunicacionComponentsComponent },
       { path: 'directivas', component: DirectivesComponent },
       { path: 'routing', component: RoutingComponent, children:[
+          {path: 'r-html/:nombreParam', component: RHtmlComponent , data:{pepito: 5}},
           {path: 'r-html', component: RHtmlComponent},
           {path: 'r-ts', component: RTsComponent},
           {path: '', redirectTo: 'r-html', pathMatch: 'full'}
@@ -48,11 +54,21 @@ const routes: Routes = [
 
     ]
   },
+  {
+    path:'tienda',
+    component: TiendaComponent,
+    children:[
+      {path: 'productos', component: ProductosComponent},
+      {path:'contactanos', component: ContactanosComponent},
+      {path:'inicio', component: InicioComponent},
+      {path:'', redirectTo: 'inicio', pathMatch: 'full'}
+    ]
+  },
 
   { path: '', component: ComponentesComponent },
   {
     path: '**', //El doble asterisco sirve para que cualquier coincidencia tome este objeto
-    redirectTo: 'componente' //El redirectTo sirve para definir al path que lo queremos mandar
+    component: NotFoundComponent
   },
 ];
 

@@ -9,6 +9,8 @@ export class CicloVidaComponent {
 
   contador = 0
   @Input() bulto = "Hola";
+  contadorInterval = 0;
+  intervalFunction :any;
 
   constructor(){
     //Es lo primero que se ejecuta al generar el componente puesto que es una clase, por ende todo arranca desde aca. Es ideal para dar valores iniciales que de preferencia sean sincronicos
@@ -28,6 +30,10 @@ export class CicloVidaComponent {
     //Es ideal para disparar y cargar elementos asincronicos
     this.contador++;
     console.log(`Soy el paso 3-ngOnInit y me invoque en la posicion: ${this.contador}`);
+    this.intervalFunction = setInterval(()=>{
+      this.contadorInterval++;
+      console.log(this.contadorInterval);
+    },1000);
   }
 
   ngDoCheck(){
@@ -69,6 +75,10 @@ export class CicloVidaComponent {
     //Se ejecuta ANTES de salir del componente y es ideal para destruir todos esos procesos asincronicos que quedan en nuestro navegador
     this.contador++;
     console.log(`Soy el paso 9-ngOnDestroy y me invoque en la posicion: ${this.contador}`);
+
+    if(this.intervalFunction){
+      clearInterval(this.intervalFunction);
+    }
   }
 
 
