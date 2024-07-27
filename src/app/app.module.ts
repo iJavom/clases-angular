@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,9 @@ import { ProductosComponent } from './tienda/productos/productos.component';
 import { ContactanosComponent } from './tienda/contactanos/contactanos.component';
 import { ModelosComponent } from './clases/modelos/modelos.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ServicesComponent } from './clases/services/services.component';
+import { HttpclientComponent } from './clases/httpclient/httpclient.component';
+import { ProductoComponent } from './tienda/producto/producto.component';
 
 @NgModule({
   declarations: [
@@ -47,12 +51,16 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ProductosComponent,
     ContactanosComponent,
     ModelosComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ServicesComponent,
+    HttpclientComponent,
+    ProductoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,6 +16,7 @@
         <button class="btn btn-primary w-100" (click)="filtrar()">Filtrar</button>
     </div>
     <div class="col-md-9">
+        <button class="btn btn-success w-100 mb-3" [routerLink]="'/tienda/producto'"> Crear Producto </button>
         <ng-container *ngFor="let producto of productos">
             <div class="card mb-3" *ngIf="producto.price >= this.precioMin && producto.price <= this.precioMax">
                 <div class="row g-0">
@@ -27,6 +28,8 @@
                       <h5 class="card-title">{{ producto.title }}</h5>
                       <p class="card-text">{{ producto.description }}</p>
                       <p class="card-text"><small class="text-body-secondary">${{producto.price}}</small></p>
+                      <button class="btn btn-danger" (click)="borrarProducto(producto.id!)">Borrar</button>
+                      <button class="btn btn-primary" [routerLink]="'/tienda/producto/'+producto.id">Editar</button>
                     </div>
                   </div>
                 </div>

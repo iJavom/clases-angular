@@ -15,6 +15,7 @@ import { ProductosComponent } from './tienda/productos/productos.component';
 import { ContactanosComponent } from './tienda/contactanos/contactanos.component';
 import { InicioComponent } from './tienda/inicio/inicio.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ProductoComponent } from './tienda/producto/producto.component';
 
 
 //En routes nosotros guardamos un conjunto de objetos, con sus respectivas rutas y componentes o modulos
@@ -58,6 +59,8 @@ const routes: Routes = [
     path:'tienda',
     component: TiendaComponent,
     children:[
+      {path: 'producto/:id', component: ProductoComponent},
+      {path: 'producto', component: ProductoComponent},
       {path: 'productos', component: ProductosComponent},
       {path:'contactanos', component: ContactanosComponent},
       {path:'inicio', component: InicioComponent},
