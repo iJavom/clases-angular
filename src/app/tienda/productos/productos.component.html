@@ -13,6 +13,14 @@
             <label for="precioMaximo" class="form-label">Precio máximo: </label>
             <input type="text" class="form-control" id="precioMaximo" [(ngModel)]="precioMaximo" placeholder="Precio maximo">
         </div>
+
+        <div class="mb-3">
+          <label for="" class="form-label">Categoria - {{categoriaSeleccionada}}</label>
+          <select [(ngModel)]="categoriaSeleccionada" class="form-select" aria-label="Default select example">
+            <option [value]="''">Escoja una categoría</option>
+            <option [value]="categoria" *ngFor="let categoria of categorias"> {{categoria}}</option>
+          </select>
+        </div>
         <button class="btn btn-primary w-100" (click)="filtrar()">Filtrar</button>
     </div>
     <div class="col-md-9">

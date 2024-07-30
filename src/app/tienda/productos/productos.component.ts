@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Producto } from 'src/app/shared/models/producto.model';
+import { CategoriaService } from 'src/app/shared/services/categoria.service';
 import { ProductoService } from 'src/app/shared/services/producto.service';
 
 @Component({
@@ -14,11 +15,15 @@ export class ProductosComponent {
   precioMaximo = '';
   precioMin = 0;
   precioMax = 9999999;
+  categorias: string[] = [];
+  categoriaSeleccionada: string="";
 
   //Forma 2 de invocar un service (Se populariza mucho con los component standalone, es decir version 17 y superiores) 
   $productoService = inject(ProductoService);
 
-  constructor(private productoService : ProductoService){
+  constructor(private productoService : ProductoService,
+    private categoriaService: CategoriaService
+  ){
     //Forma 1 de invocar un service, haciendolo como parametro en nuestro constructor de forma que se inicializa;
   }
 
@@ -48,6 +53,12 @@ export class ProductosComponent {
 
     //   }
     //);
+
+    this.categoriaService.getCategorias().subscribe({
+      next: (data)=>{
+        this.categorias = data;
+      }
+    });
   }
 
   filtrar(){
@@ -64,6 +75,11 @@ export class ProductosComponent {
       this.precioMax = 9999999;
     }
 
+    this.productoService.getProductos(this.categoriaSeleccionada).subscribe({
+      next: (data)=>{
+        this.productos = data;
+      }
+    })
   }
 
   borrarProducto(id: number){

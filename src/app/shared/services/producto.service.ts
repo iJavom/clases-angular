@@ -13,12 +13,17 @@ export class ProductoService {
 
   constructor(private http : HttpClient) { }
 
-  getProductos(){
-    let nombreHeader = new HttpHeaders({
+  getProductos(categoria:string=''){
+    let nombreHeader = new HttpHeaders({ //Ejemplo de mostrativo
       'ticketAcceso': 'Mensaje adicional que queramos mandar'
     });
+    let apiUrl = this.apiUrl;
 
-    return this.http.get<Producto[]>(this.apiUrl,{ headers : nombreHeader});
+    if(categoria){
+      apiUrl+=`/category/${categoria}`
+    }
+
+    return this.http.get<Producto[]>(apiUrl,{ headers : nombreHeader});
   }
   getProducto(id:number){
     return this.http.get<any>(`${this.apiUrl}/${id}`);

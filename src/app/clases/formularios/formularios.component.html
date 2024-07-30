@@ -1,0 +1,34 @@
+<div class="container">
+    <h2>Formularios</h2>
+    <br>
+    <p>Angular nos ofrece un conjunto de herramientas para manipular campos con el fin de facilitar la comunicacion entre componentes y plantillas.</p>
+    <div class="row">
+        <h3>Template Form (Formularios de plantilla)</h3>
+        <div class="col-md-9">
+            <p>Son aquellos formularios que estan constituidos de un conjunto de inputs que poseen nuestro two way binding (enlace bidereccional), es decir el [(ngModel)]. Generalmente se usan para un conjunto de inputs que tienen funcionalidades especificas y no son tan estrictos</p>
+            <br>
+            <p><strong>para poder hacer uso de estos debemos importar FormsModule</strong></p>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <h3>React Form (Formulario Reactivos)</h3>
+        <br>
+        <div class="col-md-9">
+            <p>Los formularios reactivos tienen un comportamiento que almacena dentro de un objeto sus inputs y adicional a esto le permite hacer evaluaciones extras con el fin de poder gestionar mucho mejor nuestro formulario. Sabemos que es un formulario reactivo porque forma parte de un formGroup y adicional cada input tiene un formControl</p>
+    
+            <br>
+            <p><strong>Para nosotros usar formulario reactivos debemos importar ReactiveFormsModule </strong></p>
+            
+
+        </div>
+        <div class="col-md-3">
+            <h4>Ejemplo:</h4>
+            <form [formGroup]="formGroupPepito">
+                Nombre: <input formControlName="nombre" type="text">
+                Apellido: <input formControlName="apellido" type="text">
+            </form>
+        </div>
+    </div>
+</div>

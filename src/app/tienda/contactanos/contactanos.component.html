@@ -1,1 +1,38 @@
-<p>contactanos works!</p>
+<div class="container">
+    <h2>Contactanos</h2>
+    <hr>
+    <form [formGroup]="formContactanos" (ngSubmit)="enviar()">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+        <input type="text" class="form-control" placeholder="Inserte su nombre"
+        formControlName="nombre">
+        <small class="text-danger"  *ngIf="this.nombre?.touched && this.nombre?.status == 'INVALID'">¡Por favor llena el campo!</small>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email</label>
+        <input type="text" class="form-control" placeholder="name@example.com"
+        formControlName="email">  
+        <small class="text-danger"  *ngIf="this.nombre?.touched && this.nombre?.status == 'INVALID'">¡Por favor llena el campo!</small>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Telefono</label>
+        <input type="text" class="form-control"  placeholder="Inserte su telefono"
+        formControlName="telefono">  
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Motivo</label>
+        <select formControlName="motivo" class="form-select" aria-label="Default select example">
+            <option [value]="null">Escoge una opcion</option>
+            <option [value]="1">Peticion</option>
+            <option [value]="2">Queja</option>
+            <option [value]="3">Reclamo</option>
+          </select>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
+        <textarea class="form-control" rows="3"
+        formControlName="mensaje"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary w-100" (click)="enviar()" [disabled]="formContactanos.status=='INVALID'">Enviar</button>
+    </form>
+</div>

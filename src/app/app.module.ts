@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentesComponent } from './clases/componentes/componentes.component';
 import { BindingsComponent } from './clases/bindings/bindings.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalculadoraComponent } from './clases/calculadora/calculadora.component';
 import { DirectivesComponent } from './clases/directives/directives.component';
 import { ComunicacionComponentsComponent } from './clases/comunicacion-components/comunicacion-components.component';
@@ -28,6 +28,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ServicesComponent } from './clases/services/services.component';
 import { HttpclientComponent } from './clases/httpclient/httpclient.component';
 import { ProductoComponent } from './tienda/producto/producto.component';
+import { FormulariosComponent } from './clases/formularios/formularios.component';
 
 @NgModule({
   declarations: [
@@ -54,13 +55,15 @@ import { ProductoComponent } from './tienda/producto/producto.component';
     NotFoundComponent,
     ServicesComponent,
     HttpclientComponent,
-    ProductoComponent
+    ProductoComponent,
+    FormulariosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
