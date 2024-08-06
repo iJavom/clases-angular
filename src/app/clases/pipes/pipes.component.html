@@ -1,0 +1,22 @@
+<h2>Pipes</h2>
+<div class="row">
+    <div class="col-md-9">
+        <p>Los pipes son una herramienta de angular que permiten hacer una modificacion visual de nuestros valores en la plantilla, es decir que no modifica el valor original, pero si se va a visualizar de la forma modificada nuestro dato</p>
+        <br>
+        <p>Para nosotros usar los pipes simplemente en nuestra interpolazion nosotros podemos poner "| nombredelpipe:opciones?:mas-opciones?</p>
+    </div>
+    <div class="col-md-3">
+        <h4>Ejemplo:</h4>
+        <ul>
+            <li>currency: {{ 54.12345678912 | currency : 'COP' : '$': '6.6-8'}}</li>
+            <li>date: {{ hoy | date : 'dd-MM-yyyy'}}</li>
+            <li>decimal: {{123.123456789 | number : '6.2-12'}}</li>
+            <li>json: {{persona | json}}</li>
+            <li>lowerCase : {{'JAVIER' | lowercase}}</li>
+            <li>upperCase : {{'sasha' | uppercase}}</li>
+            <li>TitleCase : {{'sashA es una husky' | titlecase}}</li>
+            <li>Percent: {{0.123 | percent}}</li>
+            <li>Personalizado: {{'Esto es un mensaje de prueba' | autorMensaje : 'Profe'}}</li>
+        </ul>
+    </div>
+</div>

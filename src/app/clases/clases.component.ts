@@ -35,7 +35,19 @@ export class ClasesComponent {
     {
       nombre: 'ruteo',
       url: 'routing'
-    }
+    },
+    {
+      nombre : 'formularios',
+       url:'formularios'
+      },
+    {
+      nombre : 'httpclient',
+       url:'httpclient'
+      },
+    {
+      nombre : 'pipes',
+       url:'pipes'
+      }
   ]
 
   menuEscogido = 'componentes';

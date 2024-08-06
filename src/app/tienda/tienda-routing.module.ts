@@ -6,7 +6,6 @@ import { ContactanosComponent } from './contactanos/contactanos.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ProductoComponent } from './producto/producto.component';
 
-
 const routes: Routes = [
 
   {
@@ -18,6 +17,7 @@ const routes: Routes = [
       {path: 'productos', component: ProductosComponent},
       {path:'contactanos', component: ContactanosComponent},
       {path:'inicio', component: InicioComponent},
+
       {path:'', redirectTo: 'inicio', pathMatch: 'full'}
     ]
   },

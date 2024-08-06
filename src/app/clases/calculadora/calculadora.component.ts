@@ -18,16 +18,6 @@ export class CalculadoraComponent {
       this.valorEnPantalla ="";
     }else if( caracter == "="){
       this.valorEnPantalla = eval(`(+this.primerValor ${this.operacion} +this.valorEnPantalla).toString()`);
-      // switch(this.operacion){
-      //   case '+': this.valorEnPantalla = (+this.primerValor + +this.valorEnPantalla).toString();
-      //   break;
-      //   case '-': this.valorEnPantalla = (+this.primerValor - +this.valorEnPantalla).toString();
-      //   break;
-      //   case '*': this.valorEnPantalla = (+this.primerValor * +this.valorEnPantalla).toString();
-      //   break;
-      //   case '/': this.valorEnPantalla = (+this.primerValor / +this.valorEnPantalla).toString();
-      //   break;
-      // }
     }else{
       this.valorEnPantalla += caracter;
     }

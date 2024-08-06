@@ -19,6 +19,8 @@ import { HttpclientComponent } from './httpclient/httpclient.component';
 import { FormulariosComponent } from './formularios/formularios.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClasesRoutingModule } from './clases-routing.module';
+import { PipesComponent } from './pipes/pipes.component';
+import { AutorMensajePipe } from '../shared/pipes/autor-mensaje.pipe';
 
 
 
@@ -40,7 +42,9 @@ import { ClasesRoutingModule } from './clases-routing.module';
     ModelosComponent,
     ServicesComponent,
     HttpclientComponent,
-    FormulariosComponent
+    FormulariosComponent,
+    PipesComponent,
+    AutorMensajePipe
   ], //Que sirven para poder invocar los componentes, pipes y directivas
   imports: [ //Los import sirven para poder usar otros modulos que vayamos a usar
     CommonModule,

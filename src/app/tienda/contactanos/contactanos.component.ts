@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import * as L from 'leaflet';
 
 @Component({
   selector: 'app-contactanos',
@@ -7,7 +8,10 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
   styleUrls: ['./contactanos.component.css']
 })
 export class ContactanosComponent {
-
+  //Podemos capturar un elemento con viewChild o si la misma libreria lo hace podemos darle esa responsabilidad a la libreria y almacenar en uan variable.
+  //Nos vemos a las 8:15
+  private map: L.Map | null = null;
+  private markers : L.Marker[] = [];
   formContactanos : FormGroup; //Aqui creamos el controlador del formulario grupal
 
   constructor(private formbuilder : FormBuilder){//Inicializamos en el constructor el formBuilder porque necesitamos crear un objeto de ese tipo
@@ -43,9 +47,35 @@ export class ContactanosComponent {
 
   }
 
+  ngOnInit(){
+    this.inicializarMapa();
+  }
+
+  inicializarMapa(){
+    this.map = L.map('pepito').setView([7.1130639, -73.1141394], 20);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(this.map);
+    // L.marker([7.1130639, -73.1141394],{
+    //   title: 'Hola soy una marca'
+    // }).addTo(this.map);
+
+    this.map.on('click', (e)=>{
+      this.crearMarcar(e)
+    })
+    // this.map.on('click', this.crearMarcar.bind(this));
+  }
+
 
   enviar(){
     alert("El mensaje ha sido enviado")
+  }
+
+  crearMarcar(e:any){
+    const marker = L.marker(e.latlng).addTo(this.map!);
+
+    this.markers.push(marker);
   }
 
 

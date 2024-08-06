@@ -18,7 +18,8 @@ import { TiendaRoutingModule } from './tienda-routing.module';
     InicioComponent,
     ProductosComponent,
     ContactanosComponent,
-    ProductoComponent
+    ProductoComponent,
+
   ],
   imports: [
     CommonModule,

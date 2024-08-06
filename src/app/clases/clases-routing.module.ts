@@ -10,6 +10,9 @@ import { BindingsComponent } from './bindings/bindings.component';
 import { RoutingComponent } from './routing/routing.component';
 import { RHtmlComponent } from './routing/r-html/r-html.component';
 import { RTsComponent } from './routing/r-ts/r-ts.component';
+import { PipesComponent } from './pipes/pipes.component';
+import { HttpclientComponent } from './httpclient/httpclient.component';
+import { FormulariosComponent } from './formularios/formularios.component';
 
 
 //En routes nosotros guardamos un conjunto de objetos, con sus respectivas rutas y componentes o modulos
@@ -39,6 +42,9 @@ const routes: Routes = [
       { path: 'ciclo-vida', component: CicloVidaComponent },
       { path: 'comunicacion-componentes', component: ComunicacionComponentsComponent },
       { path: 'directivas', component: DirectivesComponent },
+      {path:'formularios', component: FormulariosComponent},
+      {path:'httpclient', component: HttpclientComponent},
+      {path:'pipes', component: PipesComponent},
       { path: 'routing', component: RoutingComponent, children:[
           {path: 'r-html/:nombreParam', component: RHtmlComponent , data:{pepito: 5}},
           {path: 'r-html', component: RHtmlComponent},

@@ -1,5 +1,6 @@
 <div class="container">
-    <h2>Contactanos</h2>
+    <h2 >Contactanos</h2>
+    <h2 (click)="crearMarcar($event)">Mapa</h2>
     <hr>
     <form [formGroup]="formContactanos" (ngSubmit)="enviar()">
     <div class="mb-3">
@@ -35,4 +36,8 @@
     </div>
     <button type="submit" class="btn btn-primary w-100" (click)="enviar()" [disabled]="formContactanos.status=='INVALID'">Enviar</button>
     </form>
+
+    <div class="mb-5">
+        <div id="pepito" style="height: 500px;"></div>
+    </div>
 </div>
